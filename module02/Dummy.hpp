@@ -1,5 +1,4 @@
 #include "ATarget.hpp"
-
 #pragma once 
 
 class Dummy : public ATarget {

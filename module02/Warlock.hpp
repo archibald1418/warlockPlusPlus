@@ -7,7 +7,9 @@
 #include <iostream>
 #include "ASpell.hpp"
 #include "ATarget.hpp"
+#include "SpellBook.hpp"
 #include <map>
+
 
 
 
@@ -27,10 +29,13 @@ class Warlock
                 return *this;
             return *this;
         }        
-        typedef std::pair<std::string, ASpell *> spellMap;
-        typedef std::map<std::string, ASpell*>::iterator spellsIter;
+        // typedef std::pair<std::string, ASpell *> spellMap;
+        // typedef std::map<std::string, ASpell*>::iterator spellsIter;
+        // std::map<std::string, ASpell *> spells;
+        
+        SpellBook spellBook;
 
-        std::map<std::string, ASpell *> spells;
+        
         
 public:
 
@@ -66,18 +71,18 @@ public:
 
     void    learnSpell(ASpell* spell){
         if (spell)
-            spells.insert(spellMap(spell->getName(), spell->clone()));
+            spellBook.learnSpell(spell->clone());
     }
 
     void    forgetSpell(string spellName){
-        spellsIter it = spells.find(spellName);
-        if (it == spells.end())
+        spellsIter it = spellBook.spells.find(spellName);
+        if (it == spellBook.spells.end())
             return ;
-        spells.erase(spellName);
+        spellBook.forgetSpell(spellName);
     }
 
     void    launchSpell(std::string spellName, const ATarget& target){
-        ASpell* spell = spells[spellName];
+        ASpell* spell = spellBook.spells[spellName];
         if (spell)
             spell->launch(target);
     }
