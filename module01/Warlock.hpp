@@ -1,15 +1,10 @@
 #ifndef WARLOCK_H
 # define WARLOCK_H
 
-
-
-
 #include <iostream>
+#include <map>
 #include "ASpell.hpp"
 #include "ATarget.hpp"
-#include <map>
-
-
 
 using std::string;
 using std::cout;

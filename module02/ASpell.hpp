@@ -1,8 +1,7 @@
-#include <iostream>
-
 #pragma once
 
 #include "ATarget.hpp"
+#include <iostream>
 
 class ASpell {
 
@@ -48,11 +47,4 @@ class ASpell {
         {
             target.getHitBySpell(*this);
         }
-
-
-
-
-#include "ATarget.hpp"
-
-
 };
